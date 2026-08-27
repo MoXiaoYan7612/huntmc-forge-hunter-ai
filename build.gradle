@@ -1,0 +1,23 @@
+apply from: rootProject.file('forge-module.gradle')
+
+archivesBaseName = 'huntmc-hunter-ai'
+
+def taczJarPath = providers.gradleProperty('taczJar')
+        .orElse('D:/MC/.minecraft/versions/1.20.1-Forge_47.4.22/mods/tacz-1.20.1-1.1.8-hotfix.jar')
+        .get()
+def taczJar = file(taczJarPath)
+
+if (!taczJar.isFile()) {
+    throw new GradleException("TaCZ 1.1.8-hotfix jar not found: ${taczJar}. Supply -PtaczJar=<path-to-tacz-jar>.")
+}
+
+dependencies {
+    compileOnly project(':bridge-contract')
+    compileOnly project(':bukkit-bridge')
+    compileOnly files(taczJar)
+    testImplementation project(':bridge-contract')
+}
+
+tasks.named('jar', Jar).configure {
+    manifest.attributes(['MixinConfigs': 'huntmc_hunter_ai.mixins.json'])
+}

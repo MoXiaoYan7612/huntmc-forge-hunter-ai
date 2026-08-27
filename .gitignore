@@ -1,0 +1,23 @@
+# Build outputs and local caches
+**/.gradle/
+**/build/
+**/target/
+**/bin/
+**/out/
+
+# Runtime logs and crash reports
+**/logs/
+*.log
+hs_err_pid*.log
+replay_pid*.log
+
+# Local IDE metadata
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# Operating-system files
+.DS_Store
+Thumbs.db

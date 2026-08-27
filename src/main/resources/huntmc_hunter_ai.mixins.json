@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cn.huntmc.hunterai.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ArclightActivationRangeMixin",
+    "ArclightTrackingRangeMixin",
+    "LivingEntityAmmoCheckMixin",
+    "ModernKineticGunScriptApiAmmoMixin"
+  ],
+  "injectors": { "defaultRequire": 1 }
+}
